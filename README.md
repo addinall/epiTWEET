@@ -18,4 +18,6 @@ Twitter data is available in an open manner.  APIs are readily available.
 
 This project is using AngularJS, Javascript, HTML5, CSS3, Bootstrap and Python.  Later we will add some limited local store using Mongo/Redix.
 
+I will be developing the REST server in Python and using Angular REST to consume the data mining results.  I just had a 
+look at a number of frameworks to do this and they are all to big and messy.  So I'll roll my own as per usual.
 

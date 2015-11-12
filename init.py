@@ -28,33 +28,48 @@ from tweepy import OAuthHandler
 
 def initTwit():
 
+    ''' This function starts the Twitter API and handles the
+        authorisation by passing MY secret keys.
+        This could be a security worry in the future.  These
+        key should NOT be stored under the html_public area.
+        I need to swing them up a level and restrict even read access.
+        TODO: '''
+
     consumer_key        = 'edh61ZLLRwwJeobPzrA69nrxn'
     consumer_secret     = 'TewpeMfmEDlIYK2vCWoojQSUxW2gBngsL6t6ir72YHVpoBwGLI'
 
     access_token        = '17554806-cEQu158Fanl41XJf6Latc5EREFMvXpkiH4t6y89gd'
     access_token_secret = 'm5YLxVJK4RAATBPRegjzUtpcIcCyglxJvP1SDp1vv7W2g'
 
+    success             = True
 
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
     if (auth):
         auth.set_access_token(access_token, access_token_secret)
     else:
-        print("auth not set")
+        print("Error: - auth not set")
+        success = False
 
     api = tweepy.API(auth)
     if (api):
         public_tweets = api.home_timeline()
         if (public_tweets):
             for tweet in public_tweets:
-                print(tweet.text)
+                print(tweet.text, end="\n\n")
         else:
-            print("no public tweets")
+            print("Error: - no public tweets")
+            success = False
     else:
-        print("api not set")
+        print("Error: - api not set")
+        success = False
+
+    return success
 
 #test it
 
 
-initTwit()
+if initTwit():
+    print('Done \n')
+
 
 

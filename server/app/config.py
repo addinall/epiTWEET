@@ -1,6 +1,6 @@
 ## CAPTAIN SLOG
 ## vim: set expandtab tabstop=4 shiftwidth=4 autoindent smartindent:
-## File         :   init.py 
+## File         :   config.py 
 ## System       :   epiTWEET
 ## Date         :   November 2015
 ## Author       :   Mark Addinall
@@ -22,4 +22,8 @@
 ##                  Bootstrap and Python. Later we will add some limited local 
 ##                  store using Mongo/Redix.tool.
 ##             
-##
+##                  This file contains runtime configuration variables. 
+
+DEBUG               = True
+WTF_CSRF_ENABLED    = False     # Cross site request forgery protection off
+                                # whilst we do UNIT testing

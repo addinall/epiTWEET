@@ -46,10 +46,6 @@ basedir = os.path.join(os.path.abspath(os.path.dirname(__file__)), '../')
 app = Flask(__name__)
 app.config.from_object('app.config')
 
-# flask-sqlalchemy
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'app.sqlite')
-db = SQLAlchemy(app)
-
 # flask-restful
 api = restful.Api(app)
 

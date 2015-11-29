@@ -1,4 +1,4 @@
-# epiTWEET
+# epiTWEET - PYTHON Web App
 
 ## Bioinformatic project that datamines social media discovering epidemic transmission of disease
 

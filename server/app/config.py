@@ -23,6 +23,9 @@
 ##                  store using Mongo/Redix.tool.
 ##             
 ##                  This file contains runtime configuration variables. 
+##                  Not all consolidated in the one place as yet.  All of
+##                  these new technologies are really rather selfish, each
+##                  wanting their own little structure.
 
 DEBUG               = True
 WTF_CSRF_ENABLED    = False     # Cross site request forgery protection off

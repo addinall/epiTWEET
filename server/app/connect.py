@@ -29,7 +29,7 @@ class Database:
         self.host       = db_host
         self.port       = db_port
 
-        self,brand      = db_brand          # not used just at the moment, but
+        self.brand      = db_brand          # not used just at the moment, but
                                             # it will be very shortly.  Once I am
                                             # happy with the structure and 
                                             # robstness of this model we shall
@@ -62,8 +62,9 @@ class Database:
             print "DB faied"                # error classes going in at the end
                                             # of the week so we have automated
                                             # testing and some self healing
-        if self.conn:
-            print "Opened database successfully"
+        if self.test:
+            if self.conn:
+                print "Opened database successfully"
 
 
 
@@ -72,7 +73,8 @@ class Database:
 
 
 #-------------------------------------
-db_instance = Database( "python-test",
+db_instance = Database( True,
+                        "python-test",
                         "addinall",
                         "S0laris7.1",
                         "127.0.0.1",

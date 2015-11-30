@@ -1,6 +1,6 @@
 ## CAPTAIN SLOG
-## vim: set expandtab tabstop=4 shiftwidth=4 autoindent smartindent:
-## File         :   init.py 
+## vim: set expandtab tabstop=4 shiftwidth=4 autoindent :
+## File         :   
 ## System       :   epiTWEET
 ## Date         :   November 2015
 ## Author       :   Mark Addinall

@@ -1,5 +1,5 @@
 ## CAPTAIN SLOG
-## vim: set expandtab tabstop=4 shiftwidth=4 autoindent smartindent:
+## vim: set expandtab tabstop=4 shiftwidth=4 autoindent :
 ## File         : db.py 
 ## System       : epiTWEET
 ## Date         : May 19 2015
@@ -15,10 +15,16 @@
 ## -------------------------------
 
 import psycopg2
+import logging
 
 #--------------
 class Database:
-    active = False
+
+    __active = False                        # as with classical OOD, we are NOT goint
+                                            # to let the world muck around with our
+                                            # internal properties.  Anything we THINK
+                                            # a service user should be able to change
+                                            # (not much) will get appropriate methods
 
     def __init__(self, db_unit_test, db_name, db_user, db_pass, db_host, db_port, db_brand):
 
@@ -62,12 +68,12 @@ class Database:
         try:
             self.conn = psycopg2.connect(info)
         except:
-            print "DB faied"                # error classes going in at the end
+            logging.critical("DB faied")    # error classes going in at the end
                                             # of the week so we have automated
                                             # testing and some self healing
         if self.test:
             if self.conn:
-                print "Opened database successfully"
+                logging.info("Opened database successfully")
 
 
 

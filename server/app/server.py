@@ -1,5 +1,5 @@
 ## CAPTAIN SLOG
-## vim: set expandtab tabstop=4 shiftwidth=4 autoindent smartindent:
+## vim: set expandtab tabstop=4 shiftwidth=4 autoindent :
 ## File         :   server.py 
 ## System       :   epiTWEET
 ## Date         :   November 2015
@@ -24,7 +24,7 @@
 ##             
 ##		            This file makes up our initial application server
 ##                  we are initializing Flask, loading the configuration variables from a 
-##                  config file, creating the flask-sqlalchemy, flask-restful objects etc… 
+##                  config file, creating the db connections, flask-restful objects etc 
 ##                  We are also adding some response headers in the after_request function that 
 ##                  will allow cross-origin resource sharing (CORS). This will allow us to host 
 ##                  the server (REST API) and the client (AngularJS app) on different domains 
@@ -32,8 +32,12 @@
 ##                  them on different ports (Example: localhost:8000 and localhost:5000).
 
 
-import os
+import db
 from flask import Flask, url_for
+
+
+
+
 
 app = Flask(__name__)
 

@@ -1,5 +1,5 @@
 ##  CAPTAIN SLOG
-##  vim: set expandtab tabstop=4 shiftwidth=4 autoindent smartindent:
+##  vim: set expandtab tabstop=4 shiftwidth=4 autoindent :
 ##  File        :   app_calsses.py 
 ##  System      :   epiTWEET
 ##  Date        :   November 2015
@@ -42,7 +42,7 @@ class AppObject(Base):
         object will also inherate from class Base. '''
 
 
-class Person(AppObject)
+class Person(AppObject):
 
 
 class Member(Person):

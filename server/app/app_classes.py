@@ -1,6 +1,6 @@
 ##  CAPTAIN SLOG
 ##  vim: set expandtab tabstop=4 shiftwidth=4 autoindent smartindent:
-##  File        :   models.py 
+##  File        :   app_calsses.py 
 ##  System      :   epiTWEET
 ##  Date        :   November 2015
 ##  Author      :   Mark Addinall
@@ -25,10 +25,38 @@
 ##
 
 
-from flask import g
+class Base:
+    ''' This is the underlying encapsulated structure for all of our application objects.
+        We are using a traditional OOD/OOP approach to this tool set and application
+        suite.  Although for the REST service we will introduce a VERY minimal
+        MVC, the rest (sic) of our objects are coming straight from the purists book.
 
-from wtforms.validators import Email
+        These object in here will make use of staked inheretance, which is
+        the only type of plymorphism I allow. '''
 
-from db import database 
 
-from flask import flask_bcrypt
+
+class AppObject(Base):
+    ''' This is the next layer on the onion for our larger application objects.
+        The reason this step exists is that smaller/utility/tempory application
+        object will also inherate from class Base. '''
+
+
+class Person(AppObject)
+
+
+class Member(Person):
+
+
+class CustomerContact(Person):
+
+
+class SupplierContact(Person):
+
+
+class Staff(Person):
+
+
+class Administrator(Staff):
+
+

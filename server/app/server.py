@@ -35,12 +35,22 @@
 import db
 from flask import Flask, url_for
 
-
-
-
-
 app = Flask(__name__)
 
+@app.route('/')
+def api_root():
+    return 'Welcome'
+
+@app.route('/newtweet')
+def api_newtweet():
+    return 'List of ' + url_for('api_newtweet')
+
+@app.route('/pasttweets/<tweet>')
+def api_pasttweets(tweet):
+    return 'You are reading ' + tweet
+
+if __name__ == '__main__':
+    app.run()
 
 
 

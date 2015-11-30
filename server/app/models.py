@@ -29,4 +29,6 @@ from flask import g
 
 from wtforms.validators import Email
 
-from server import db, flask_bcrypt
+from db import database 
+
+from flask import flask_bcrypt

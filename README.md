@@ -21,3 +21,5 @@ This project is using AngularJS, Javascript, HTML5, CSS3, Bootstrap and Python. 
 I will be developing the REST server in Python and using Angular REST to consume the data mining results.  I just had a 
 look at a number of frameworks to do this and they are all to big and messy.  So I'll roll my own as per usual.
 
+Perhaps *Mike Stealthman* will be joining the team to make a start on the client side, mailnly consuming CRUD/REST services from a HTML5/AngularJS POV.  Once the RESTful back end of mine is finished, and we have a handle on Angular2 and how it functions, then we can branch the toolset into one or more business ideas and leave me to play with viral infections!
+

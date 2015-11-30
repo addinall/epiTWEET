@@ -1,12 +1,15 @@
 ## CAPTAIN SLOG
 ## vim: set expandtab tabstop=4 shiftwidth=4 autoindent smartindent:
-## File         : connect.py 
+## File         : db.py 
 ## System       : epiTWEET
 ## Date         : May 19 2015
 ## Author       : Mark Addinall
 ## Synopsis     : Object oriented connect from the Python RESTful transactions
 ##                to a database.  This is being developed as database agnostic,
 ##                however, this time we will start with postgreSQL.
+##                This thing handles the lower level calls to whatever
+##                database is installed.  It provides that level of abstraction
+##                to the CRUD REST API.
 ##             
 ##
 ## -------------------------------

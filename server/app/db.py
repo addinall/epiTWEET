@@ -1,5 +1,5 @@
 ## CAPTAIN SLOG
-## vim: set expandtab tabstop=4 shiftwidth=4 autoindent :
+## vim: set expandtab tabstop=4 shiftwidth=4 autoindent:
 ## File         : db.py 
 ## System       : epiTWEET
 ## Date         : May 19 2015
@@ -32,6 +32,9 @@ class Database:
                                             # INTO the actual fundemental classes, we
                                             # can choose our lebel of testing granurality 
                                             # over the lifespan of the system
+        if self.test:                       # turn on trace if required
+            logging.basicConfig(filename='debug_db.log', level=logging.DEBUG)
+
         self.name       = db_name
         self.user       = db_user
         self.password   = db_pass
@@ -55,7 +58,13 @@ class Database:
             with strings, postgreSQL doubly so, and the factory in
             psycopg2 can not seem to make a choice which side to be
             on.  The syntax ends up being quite horrid, but allows us
-            to keep the same API agnostic of database brand. '''
+            to keep the same API agnostic of database brand. 
+            This METHOD is PUBLIC, but most of the PROPERTIES
+            are not.  This allows the application or middleware ORB
+            some discrection in when to start transaction processing. 
+            For example, the CSS people may want to run the application
+            whilst not connected to a DBMS server.  
+        '''
 
         info = """
            dbname=%s  
@@ -66,15 +75,59 @@ class Database:
         """ % (self.name, self.user, self.password, self.host, self.port)
        
         try:
-            self.conn = psycopg2.connect(info)
+            self.__conn = psycopg2.connect(info)
         except:
-            logging.critical("DB faied")    # error classes going in at the end
-                                            # of the week so we have automated
-                                            # testing and some self healing
+            logging.critical("DB faied")        # error classes going in at the end
+                                                # of the week so we have automated
+                                                # testing and some self healing
         if self.test:
-            if self.conn:
+            if self.__conn:
                 logging.info("Opened database successfully")
 
+        self.__cursor = self.__conn.cursor()    # and get a cursor to use for the session.
+                                                # Make it PRIVATE
+
+
+    #---------------------------
+    def __create_test_database():
+
+        ''' this is here so that during development we can create a fresh set of tables
+            without bothering one of the DBAs, ie., me.  It can stay in the system
+            for quite a while.  Possibly forever if I am going to be the only
+            user of the toolkit.
+
+            If you have forked this and have an intention of going into
+            a PRODUCTION environment, I would guggest this be removed.
+        '''
+
+        __tweet_requests = """
+            CREATE TABLE TWEET-REQUESTS
+                (   ID INT      PRIMARY KEY     NOT NULL,
+                    NAME        TEXT            NOT NULL,
+                    TWEET       TEXT            NOT NULL,
+                    LOCATION    CHAR(128)       NOT NULL,
+                    NUMBER      INT             NOT NULL);
+            """
+
+        self.__cursor.execute(__tweet_requests)
+
+    
+    #-------------------------------------------------------------
+    # This is now where the public CRUD REST methods live
+    #-------------------------------------------------------------
+
+    def CREATE(category, dbase_object):
+        ''' This is the C of the CRUD
+        '''
+
+        temp = 42
+
+
+    def REPORT(select_statement):
+        ''' This is the R of the CRUD
+        '''
+
+        temp = 42
 
 
 # -------------- End of class Database definition -----------------
@@ -90,6 +143,7 @@ db_instance = Database( True,
                         "5432",
                         "postgreSQL")
 
-db_instance.connect()
+if __name__ == '__main__':                  # if we are running stand alone for testing,
+    db_instance.connect()                   # connect, else if running as a MODULE, do not.
 
 

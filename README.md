@@ -23,3 +23,4 @@ look at a number of frameworks to do this and they are all to big and messy.  So
 
 Perhaps *Mike Stealthman* will be joining the team to make a start on the client side, mailnly consuming CRUD/REST services from a HTML5/AngularJS POV.  Once the RESTful back end of mine is finished, and we have a handle on Angular2 and how it functions, then we can branch the toolset into one or more business ideas and leave me to play with viral infections!
 
+Decided to bite the bullet and build this around Angular2 as Angular will be nearing end of life next year.  Pity.  That was too quick.  I was going to try and roll with Python 3 as well.  Made the move, but EVERYTHING on the DEV machine broke!  Back to 2.7 for the medium term at least.

@@ -3,8 +3,19 @@
   "version": "1.0.0",
   "description": "## Bioinformatic project that datamines social media discovering epidemic transmission of disease",
   "main": "index.js",
+  "dependencies": {
+    "angular2": "2.0.0-alpha.44",
+    "es6-shim": "^0.33.13",
+    "live-server": "^0.8.2",
+    "systemjs": "0.19.2"
+  },
+  "devDependencies": {
+    "live-server": "^0.8.2",
+    "typescript": "^1.7.3"
+  },
   "scripts": {
-	"start": "live-server"
+    "tsc": "tsc -p src -w",
+    "start": "live-server --open=src"
   },
   "repository": {
     "type": "git",
@@ -16,11 +27,5 @@
   "bugs": {
     "url": "https://github.com/addinall/epiTWEET/issues"
   },
-  "homepage": "https://github.com/addinall/epiTWEET#readme",
-  "dependencies": {
-    "angular2": "2.0.0-alpha.44"
-  },
-  "devDependencies": {
-    "live-server": "^0.8.2"
-  }
+  "homepage": "https://github.com/addinall/epiTWEET#readme"
 }

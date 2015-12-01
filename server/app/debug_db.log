@@ -6,3 +6,5 @@ INFO:werkzeug:127.0.0.1 - - [01/Dec/2015 01:27:30] "GET / HTTP/1.1" 200 -
 INFO:werkzeug:127.0.0.1 - - [01/Dec/2015 01:28:00] "GET /GET HTTP/1.1" 404 -
 INFO:werkzeug:127.0.0.1 - - [01/Dec/2015 01:28:31] "GET /GET HTTP/1.1" 404 -
 INFO:werkzeug:127.0.0.1 - - [01/Dec/2015 01:29:09] "GET / HTTP/1.1" 200 -
+INFO:root:Opened database successfully
+INFO:werkzeug: * Running on http://127.0.0.1:5000/

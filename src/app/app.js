@@ -10,15 +10,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var angular2_1 = require('angular2/angular2');
 var AppComponent = (function () {
     function AppComponent() {
+        this.title = 'epiTWEET';
+        this.products = ['Angular2', 'HTML5', 'CSS3', 'Bootstrap', 'REST', 'Python', 'Flask', 'Git', 'npm'];
+        this.myProduct = this.products[0];
     }
     AppComponent = __decorate([
         angular2_1.Component({
+            directives: [angular2_1.NgFor],
             selector: 'my-app',
-            template: '<h1>epiTWEET Angular2</h1><h1>HTML5 - CSS3</h1><h1>REST/CRUD - Python/Flask'
+            template: "\n    <h1>{{title}}</h1>\n    <h2>Products used in this stack are {{myProduct}}</h2>\n    <p>Full Stack:</p>\n    <ul>\n\t    <li *ng-for=\"#product of products\">\n\t\t    {{product}}\n\t    </li>\n    </ul>\n    "
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
     return AppComponent;
 })();
+exports.AppComponent = AppComponent;
 angular2_1.bootstrap(AppComponent);
 //# sourceMappingURL=app.js.map
